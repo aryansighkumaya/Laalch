@@ -397,7 +397,7 @@
 
                 <!-- Question 2: Angel One Account -->
                 <div class="question-box">
-                    <div class="question-title">Do you have an Angel One account?</div>
+                    <div class="question-title">Do you have an Angel One account or you tried on angelone?</div>
                     <div class="radio-group">
                         <div class="radio-option">
                             <input type="radio" id="angelYes" name="hasAngelOne" value="yes" required>
@@ -508,8 +508,10 @@
             overlay.classList.add('active');
 
             // Decide redirect
-            const redirectUrl = hasAngelOne.value === 'yes' ? ANGELONE_LINK : AXIS_LINK;
-            const partnerName = hasAngelOne.value === 'yes' ? 'Angel One' : 'Axis Direct';
+            // No Angel One account → Angel One link
+            // Yes (has Angel One) → Axis link
+            const redirectUrl = hasAngelOne.value === 'no' ? ANGELONE_LINK : AXIS_LINK;
+            const partnerName = hasAngelOne.value === 'no' ? 'Angel One' : 'Axis Direct';
 
             overlayText.textContent = `Redirecting you to ${partnerName}...`;
 
